@@ -1,27 +1,27 @@
 # Docker Container for Nexus
 
 
-This is conainter for [nexus][1]. The container uses [supervisord][2] to run both nexus and an ssh server.
+This is conainter for [jenkins][1]. 
 
-The file nexus.conf is an upstart job for ubuntu.
+The file jenkins.conf is an upstart job for ubuntu.
 
 ## To Build
 
 ```
-> docker build --tag nexus . # normal build
-> docker build --no-cache=true --force-rm=true --tag nexus . # force a full build
+> docker build --tag jenkins . # normal build
+> docker build --no-cache=true --force-rm=true --tag jenkins . # force a full build
 ```
 
 ## To Run
 
 ```
->  docker run --name="nexus-server" -t -i \
-                -v /data/files/nexus/:/data \
-                -v /data/tvshows:/volume1/tvshows \
-                -v /data/files/nzbget:/nzbget \
-                -p 8083:8083 nexus
+>  docker run --name="jenkins-server" -t -i \
+              --privileged \
+              -p 18001:8080 \
+              -v /data/files/jenkins/workdir:/u01/jenkins_home  \
+              -v /data/files/jenkins/docker:/var/lib/docker \
+              jenkins
 ```
 
-[1]:  https://github.com/echel0n/SickRage
-[2]:  http://supervisord.org/
+[1]:  http://jenkins-ci.org/
 
