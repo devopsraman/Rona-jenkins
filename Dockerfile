@@ -1,4 +1,4 @@
-FROM 192.168.1.178:5000/ubuntu-java7
+FROM 192.168.1.178:5000/ubuntu-java8
 
 MAINTAINER Ronan Gill <ronan@gillsoft.org>
 
