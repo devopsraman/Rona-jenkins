@@ -3,8 +3,6 @@
 
 This is conainter for [jenkins][1]. 
 
-The file jenkins.conf is an upstart job for ubuntu.
-
 ## To Build
 
 ```
