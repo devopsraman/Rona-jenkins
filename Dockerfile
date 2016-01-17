@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y git-core && \
     chown -R www-data:users /u01/jenkins&& \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN curl -sSL https://get.docker.com/ | sh
+
 VOLUME ["/u01/jenkins", "/var/lib/docker"]
 USER www-data
 ENV JENKINS_HOME /u01/jenkins
